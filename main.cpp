@@ -23,12 +23,16 @@ int main(){
     switch(optiune){
 case 1:
     depozitare();
+    break;
 case 2:
     retragere();
+    break;
 case 3:
     afisarebani();
+    break;
 case 4:
     schimbarepin();
+    break;
 default:
     return 404;
     }
