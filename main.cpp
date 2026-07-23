@@ -1,11 +1,9 @@
 #include <iostream>
 
-using namespace std;
-
 namespace gigel{
     int bani = 100;
-    int pin = 2010;
-    string fullname = "Gigel Marcel";
+    int pin = 1234;
+    std::string fullname = "Gigel Marcel";
 }
 
 // Declarari functii
@@ -17,9 +15,9 @@ int schimbarepin();
 int main(){
     using namespace gigel;
     int optiune;
-    cout << "Se verifica detaliile contului..." << endl;
-    cout << "Bun venit " << fullname << "\nVa rog selectati una din optiunile de mai jos.\n1. Depozitare\n2. Retragere numerar\n3. Afisare suma de bani\n4. Schimbare pin\n";
-    cin >> optiune;
+    std::cout << "Se verifica detaliile contului...\n";
+    std::cout << "Bun venit " << fullname << "\nVa rog selectati una din optiunile de mai jos.\n1. Depozitare\n2. Retragere numerar\n3. Afisare suma de bani\n4. Schimbare pin\n" << std::endl;
+    std::cin >> optiune;
     switch(optiune){
 case 1:
     depozitare();
@@ -41,8 +39,8 @@ default:
 
 int reintoarcere(){
     char raspuns;
-    cout << "Doriti sa va intoarceti inapoi?(Y/N): ";
-    cin >> raspuns;
+    std::cout << "Doriti sa va intoarceti inapoi?(Y/N): ";
+    std::cin >> raspuns;
     if(raspuns == 'Y' || raspuns == 'y')
         main();
     else if(raspuns == 'N' || raspuns == 'n')
@@ -55,13 +53,13 @@ int reintoarcere(){
 bool logare(){
     using namespace gigel;
     int pinintrodus;
-    cout << "Te rugam sa introduci pin-ul: ";
-    cin >> pinintrodus;
-    cout << "Se verifica pin-ul...\n";
+    std::cout << "Te rugam sa introduci pin-ul: ";
+    std::cin >> pinintrodus;
+    std::cout << "Se verifica pin-ul...\n";
     if(pinintrodus == pin)
         return true;
     else{
-        cout << "Pin introdus gresit!\n";
+        std::cout << "Pin introdus gresit!\n";
         logare();}
     return 66;
 }
@@ -70,10 +68,10 @@ int depozitare(){
     using namespace gigel;
     int suma;
     if(logare()){
-        cout << "Suma care doriti sa o depozitati: ";
-        cin >> suma;
+        std::cout << "Suma care doriti sa o depozitati: ";
+        std::cin >> suma;
         bani += suma;
-        cout << "Bani au fost adaugati in cont!" << endl;
+        std::cout << "Bani au fost adaugati in cont!" << std::endl;
         reintoarcere();
         return 0;}
     else
@@ -84,10 +82,10 @@ int retragere(){
     using namespace gigel;
     int suma;
     if(logare()){
-        cout << "Suma care doriti sa o retrageti: ";
-        cin >> suma;
+        std::cout << "Suma care doriti sa o retrageti: ";
+        std::cin >> suma;
         bani -= suma;
-        cout << "Bani au fost retrasi din cont!" << endl;
+        std::cout << "Bani au fost retrasi din cont!" << std::endl;
         reintoarcere();
         return 0;}
     else
@@ -97,7 +95,7 @@ int retragere(){
 int afisarebani(){
     using namespace gigel;
     if(logare()){
-        cout << "Suma pe care o aveti in cont este: " << bani << endl;
+        std::cout << "Suma pe care o aveti in cont este: " << bani << std::endl;
         reintoarcere();
         return 0;}
     else
@@ -108,10 +106,10 @@ int schimbarepin(){
     using namespace gigel;
     int pinnou;
     if(logare()){
-        cout << "Introduceti noul pin: ";
-        cin >> pinnou;
+        std::cout << "Introduceti noul pin: ";
+        std::cin >> pinnou;
         pin = pinnou;
-        cout << "Pin schimbat cu succes!" << endl;
+        std::cout << "Pin schimbat cu succes!" << std::endl;
         reintoarcere();
         return 0;}
     else
